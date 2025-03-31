@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d81rb"]
 size = Vector2(157, 232)
 
-[node name="Card" type="Area2D"]
+[node name="Card" type="Area2D" groups=["cards"]]
 script = ExtResource("1_d81rb")
 value = 1
 metadata/_edit_group_ = true

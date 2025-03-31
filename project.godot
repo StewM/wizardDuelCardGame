@@ -14,6 +14,10 @@ config/name="Wizard Duel Card Game"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Enums="*res://scripts/enums.gd"
+
 [display]
 
 window/size/viewport_width=1920
