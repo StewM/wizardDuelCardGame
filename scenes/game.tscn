@@ -6,3 +6,6 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
 card_scene = ExtResource("2_yqjtg")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(960, 0, 960, 1080)

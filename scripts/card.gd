@@ -3,6 +3,7 @@ extends Area2D
 @export var value = 0
 @export var suit = Enums.Suits.CLUBS
 @export var flipped = false
+var hand_index
 
 @onready var sprite = $Sprite2D
 

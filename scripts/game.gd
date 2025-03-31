@@ -6,9 +6,14 @@ var deck = []
 var discard = []
 var hand = []
 var selected = []
+var screen_size
+
+var card_width = 156
+var hand_padding = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	screen_size = get_viewport().size
 	start_game()
 
 
@@ -29,13 +34,24 @@ func start_game() -> void:
 	deck.shuffle()
 	
 	# draw hand
-	for n in 7:
-		hand.append(deck.pop_front())
+	draw(10)
+	# render hand
+	render_hand()
+
+func draw(num: int) -> void:
+	var hand_size = hand.size()
+	for n in num:
+		var card = deck.pop_front()
+		card.hand_index = hand_size + n
+		hand.append(card)
+
+func render_hand() -> void:
+	var card_offset = card_width + hand_padding
+	var extra_offset = card_offset/2 if hand.size() % 2 == 0 else 0
+	var starting_x = screen_size.x/2 + extra_offset - ((hand.size() / 2) * card_offset)
 	
-	# test showing hand
-	for index in hand.size():
-		var x = 486 + (158 * index)
-		hand[index].position = Vector2(x, 490)
-		hand[index].update_sprite()
-		hand[index].show()
-		
+	for n in hand.size():
+		var x = starting_x + (card_offset * n)
+		hand[n].position = Vector2(x, screen_size.y/2)
+		hand[n].update_sprite()
+		hand[n].show()
